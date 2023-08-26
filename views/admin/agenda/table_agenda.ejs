@@ -1,0 +1,70 @@
+<!-- Start table berita dan artikel -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#add-modal">
+            Tambah Agenda Sekolah
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table
+                class="table table-bordered"
+                id="dataTable"
+                width="100%"
+                cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal Publikasi</th>
+                        <th>Jadwal</th>
+                        <th>Gambar</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let count = 1; %> <% agendas.forEach(agenda => { %>
+                    <tr class="border border-black">
+                        <td><%= count %></td>
+                        <td><%= agenda.judul %></td>
+                        <td><%= agenda.deskripsi %></td>
+                        <td><%= agenda.tanggal_publikasi %></td>
+                        <td><%= agenda.jadwal %></td>
+                        <td>
+                            <img
+                                src="https://api-website-sekolah-production.up.railway.app/<%= agenda.imageUrl %>"
+                                alt="Image agenda Sekolah"
+                                height="150px" />
+                        </td>
+                        <td>
+                            <a
+                                class="btn btn-warning btn-circle btn-sm button-update"
+                                href="javascript:void(0)"
+                                type="button"
+                                data-id="<%= agenda._id %>"
+                                data-judul="<%= agenda.judul %>"
+                                data-deskripsi="<%= agenda.deskripsi %>"
+                                ><i class="fas fa-edit"></i
+                            ></a>
+                            <form
+                                action="/admin/agenda/<%= agenda._id %>?_method=DELETE"
+                                method="POST">
+                                <button
+                                    type="submit"
+                                    class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% count++; %> <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="add-modal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Tambah Galeri Video
+                </h1>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div>
+                <ol>
+                    <li>
+                        <p>Buka video YouTube yang ingin Anda sematkan.</p>
+                    </li>
+                    <li>
+                        <p>
+                            Di bawah video, klik tombol "Bagikan" yang terletak
+                            di bawah deskripsi video.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Klik opsi "Sematkan" untuk melihat kode iframe yang
+                            dapat Anda salin.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Salin kode iframe tersebut ke clipboard Anda.</p>
+                    </li>
+                </ol>
+
+                <p class="ms-3">
+                    Setelah Anda memiliki kode iframe, Anda dapat menyematkannya
+                    ke halaman HTML Anda untuk menampilkan video YouTube.
+                </p>
+            </div>
+            <form method="POST" action="/admin/video">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="linkyt" class="form-label"
+                            >Link Iframe</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="linkyt"
+                            name="linkyt"
+                            required
+                            placeholder="Masukkan link iframe" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Simpan Data
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

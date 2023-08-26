@@ -1,0 +1,71 @@
+<!-- Start table berita dan artikel -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#add-modal">
+            Tambah Berita atau Artikel
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table
+                class="table table-bordered"
+                id="dataTable"
+                width="100%"
+                cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Jenis</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal Publikasi</th>
+                        <th>Gambar</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let count = 1; %> <% beritas.forEach(berita => { %>
+                    <tr class="border border-black">
+                        <td><%= count %></td>
+                        <td><%= berita.judul %></td>
+                        <td><%= berita.jenis %></td>
+                        <td><%= berita.deskripsi %></td>
+                        <td><%= berita.tanggal_publikasi %></td>
+                        <td>
+                            <img
+                                src="https://api-website-sekolah-production.up.railway.app/<%= berita.imageUrl %>"
+                                alt="Image berita Sekolah"
+                                height="150px" />
+                        </td>
+                        <td>
+                            <a
+                                class="btn btn-warning btn-circle btn-sm button-update"
+                                href="javascript:void(0)"
+                                type="button"
+                                data-id="<%= berita._id %>"
+                                data-judul="<%= berita.judul %>"
+                                data-jenis="<%= berita.jenis %>"
+                                data-deskripsi="<%= berita.deskripsi %>"
+                                ><i class="fas fa-edit"></i
+                            ></a>
+                            <form
+                                action="/admin/berita-artikel/<%= berita._id %>?_method=delete"
+                                method="POST">
+                                <button
+                                    type="submit"
+                                    class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% count++; %> <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

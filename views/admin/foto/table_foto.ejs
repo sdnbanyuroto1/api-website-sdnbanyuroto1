@@ -1,0 +1,66 @@
+<!-- Start table berita dan artikel -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#add-modal">
+            Tambah Foto Sekolah
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table
+                class="table table-bordered"
+                id="dataTable"
+                width="100%"
+                cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Gambar</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let count = 1; %> <% fotos.forEach(foto => { %>
+                    <tr class="border border-black">
+                        <td><%= count %></td>
+                        <td><%= foto.judul %></td>
+                        <td><%= foto.deskripsi %></td>
+                        <td>
+                            <img
+                                src="https://api-website-sekolah-production.up.railway.app/<%= foto.imageUrl %>"
+                                alt="Image foto Sekolah"
+                                height="150px" />
+                        </td>
+                        <td>
+                            <a
+                                class="btn btn-warning btn-circle btn-sm button-update"
+                                href="javascript:void(0)"
+                                type="button"
+                                data-id="<%= foto._id %>"
+                                data-judul="<%= foto.judul %>"
+                                data-deskripsi="<%= foto.deskripsi %>"
+                                ><i class="fas fa-edit"></i
+                            ></a>
+                            <form
+                                action="/admin/foto/<%= foto._id %>?_method=DELETE"
+                                method="POST">
+                                <button
+                                    type="submit"
+                                    class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% count++; %> <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

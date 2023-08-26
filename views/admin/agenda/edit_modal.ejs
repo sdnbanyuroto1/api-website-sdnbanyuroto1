@@ -1,0 +1,83 @@
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="edit-modal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Edit Agenda Sekolah
+                </h1>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+
+            <form
+                method="POST"
+                action="/admin/agenda?_method=PUT"
+                enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="mb-3 form-group">
+                        <label for="judul" class="form-label">Judul</label>
+                        <input
+                            type="text"
+                            class="form-control judul"
+                            id="judul"
+                            name="judul"
+                            required
+                            placeholder="Masukkan judul agenda" />
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="deskripsi" class="form-label"
+                            >Deskripsi</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control deskripsi"
+                            id="deskripsi"
+                            name="deskripsi"
+                            required
+                            placeholder="Masukkan deskripsi agenda" />
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="deskripsi" class="form-label">Jadwal</label>
+                        <input
+                            type="datetime-local"
+                            class="form-control jadwal"
+                            id="jadwal"
+                            name="jadwal"
+                            required
+                            placeholder="Masukkan tanggal dan jam agenda" />
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="image" class="form-label">Gambar</label>
+                        <input
+                            type="file"
+                            class="form-control"
+                            id="image"
+                            name="image"
+                            placeholder="Gambar Agenda" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="text" class="id" hidden name="id" />
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Simpan Data
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
